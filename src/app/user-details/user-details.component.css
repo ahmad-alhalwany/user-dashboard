@@ -1,0 +1,41 @@
+.user-card {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 1rem;
+    text-align: center;
+  }
+  .user-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 1rem auto;
+    object-fit: cover;
+  }
+  
+  mat-card-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  
+  mat-card-subtitle {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  mat-card-content {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  mat-card-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  
+  mat-card-actions button {
+    width: 100px;
+  }
+  
