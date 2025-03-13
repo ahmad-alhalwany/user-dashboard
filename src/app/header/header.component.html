@@ -1,28 +1,31 @@
-  <div class="header-content">
-    <div class="search-container">
-      <input
-        matInput
-        [formControl]="searchControl"
-        placeholder="Search users..."
-        class="search-input"
-        (focus)="showSuggestions = true"
-        (blur)="onInputBlur()"
+<div class="header-content">
+  <div class="search-container">
+    <input
+      matInput
+      [formControl]="searchControl"
+      placeholder="Search users..."
+      class="search-input"
+      (focus)="showSuggestions = true"
+      (blur)="onInputBlur()"
+    >
+
+    <div *ngIf="isSearching" class="search-loading">
+      <mat-spinner diameter="20"></mat-spinner>
+    </div>
+
+    <button
+      *ngIf="searchControl.value"
+      mat-icon-button
+      class="clear-button"
+      (click)="clearSearch()"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+
+    <div *ngIf="showSuggestions" class="suggestions-dropdown">
+      <div
+        *ngIf="searchResults.length"
       >
-
-      <div *ngIf="isSearching" class="search-loading">
-        <mat-spinner diameter="20"></mat-spinner>
-      </div>
-
-      <button
-        *ngIf="searchControl.value"
-        mat-icon-button
-        class="clear-button"
-        (click)="clearSearch()"
-      >
-        <mat-icon>close</mat-icon>
-      </button>
-
-      <div *ngIf="showSuggestions && searchResults.length" class="suggestions-dropdown">
         <div
           *ngFor="let user of searchResults; let i = index"
           class="suggestion-item"
@@ -42,8 +45,9 @@
         </div>
       </div>
 
-      <div *ngIf="showSuggestions && !isSearching && !searchResults.length" class="no-results">
+      <div *ngIf="!isSearching && !searchResults.length" class="no-results">
         No users found
       </div>
     </div>
   </div>
+</div>

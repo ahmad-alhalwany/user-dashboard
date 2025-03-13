@@ -8,26 +8,25 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { User } from '../models/user.model';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [
+    CommonModule,
     MatToolbarModule,
     ReactiveFormsModule,
     MatIconModule,
     MatInputModule,
     MatProgressSpinnerModule,
-    CommonModule,
   ],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
   searchControl = new FormControl('');
-  searchResults: User[] = [];
+  searchResults: any[] = [];
   showSuggestions = false;
   isSearching = false;
   selectedIndex = -1;
@@ -68,11 +67,13 @@ export class HeaderComponent {
     this.showSuggestions = false;
     this.searchResults = [];
     this.selectedIndex = -1;
+    this.isSearching = false;
   }
 
   onInputBlur(): void {
     setTimeout(() => {
       this.showSuggestions = false;
+      this.isSearching = false;
     }, 200);
   }
 

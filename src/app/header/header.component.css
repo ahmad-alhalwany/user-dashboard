@@ -94,8 +94,8 @@
 }
 
 .no-results {
-  position: absolute;
   padding: 12px 20px;
   color: #666;
   font-style: italic;
+  text-align: center;
 }
